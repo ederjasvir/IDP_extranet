@@ -1,13 +1,69 @@
-﻿<!DOCTYPE html>
+﻿<!--@@1 Inicio: Importamos el name para la comnicación http y capturamos el valor de sesión-->
+
+@using Microsoft.AspNetCore.Http
+
+@{
+
+    var vUser = Context.Session.GetString("_User");<!--Capturar la sesión en la variable vUser-->
+
+}
+
+<!--@@1 Final-->
+
+
+<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - IDP_Extranet</title>
+
+
+
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    @*<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />*@
+    <title></title>
+    <title>@ViewData["Title"] - IDP Contigo </title>
+    <meta content="" name="descriptison">
+    <meta content="" name="keywords">
+
+    <!-- =======================================================
+    * Template Name: Vesperr - v2.0.0
+    * Template URL: https://bootstrapmade.com/vesperr-free-bootstrap-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
 
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+
+        @*ares*@
+        <!-- Favicons -->
+        <link href="~/images/img/idp_logo.ico" rel="icon">
+        <link href="~/images/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+        <!-- Vendor CSS Files -->
+        @*<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">*@
+        <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+        <link href="~/vendor/icofont/icofont.min.css" rel="stylesheet">
+        <link href="~/vendor/remixicon/remixicon.css" rel="stylesheet">
+        <link href="~/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+        <link href="~/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="~/vendor/venobox/venobox.css" rel="stylesheet">
+        <link href="~/vendor/aos/aos.css" rel="stylesheet">
+
+        <!-- Template Main CSS File -->
+        <link href="~/css/style.css" rel="stylesheet">
+
+
+        <link href="~/vendor/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+        <!--********************************* css propios ********************************************-->
+        <link href="~/css/propios/funel.css" rel="stylesheet">
+
+
+        @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+            <link rel="stylesheet" href="~/css/site.css" />*@
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -17,42 +73,164 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">IDP_Extranet</a>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center">
+
+            <div class="logo mr-auto">
+                <!-- <h1 class="text-light"><a href="index.html"><span>Vesperr adadad</span></a></h1> -->
+                <!-- Uncomment below if you prefer to use an image logo -->
+                @*<a href="index.html"><img src="~/images/img/idpLogo.png"></a>*@
+                <a asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/img/idpLogo.png"></a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+
+            <nav class="nav-menu d-none d-lg-block">
+                <ul>
+                    @*<li class="active"><a href="#header">Inicio</a></li>*@
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Nosotros</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">testimonials</a></li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="Index"> <p>USUARIO: @vUser</p><!--valor de la sesión--></a>
+                        @using (Html.BeginForm("LogOff", "Login", FormMethod.Post, new { id = "logoutForm", @class = "form-css" }))
+
+                        {
+
+                            <a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-fw fa-power-off"></i> Cerrar Sesión</a>
+
+                        }
+                    </li>
+                    
+                     
+                    @*<li><a href="#about">Nosotros</a></li>
+        <li><a href="#testimonials">Testimonios</a></li>
+        <li class="get-started"><a href="#about">Login / Registro</a></li>*@
                 </ul>
-            </div>
+            </nav><!-- .nav-menu -->
+
         </div>
-    </nav>
+    </header><!-- End Header -->
+    @*<nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">IDP_Extranet</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>*@
 
     <partial name="_CookieConsentPartial" />
 
     <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2022 - IDP_Extranet</p>
-        </footer>
+
+        <div class="row justify-content-lg-end">
+
+            <div class="row">
+
+                <!--@@3 Inicio: Pasar el valor de la variable vUser (sessión) a al parráfo; además invocamos al Action LogOff para cerrar la sesión-->
+
+                @*<div class="col">
+
+                    <p>USUARIO: @vUser</p>valor de la sesión
+
+                </div>*@
+
+                @*<div class="col">
+
+
+
+                    @using (Html.BeginForm("LogOff", "Login", FormMethod.Post, new { id = "logoutForm", @class = "form-css" }))
+
+                    {
+
+                        <a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-fw fa-power-off"></i> Cerrar Sesión</a>
+
+                    }
+
+                </div>*@
+
+                <!--@@3 Final-->
+
+            </div>
+
+        </div>
+
     </div>
 
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
+        @RenderBody()
+        <hr />
+
+        <!-- ======= Footer ======= -->
+        <footer id="footer">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-lg-6 text-lg-left text-center">
+                        <div class="copyright">
+                            <p>&copy; 2022 - IDP Extranet </p>
+                        </div>
+                        @*<div class="credits">*@
+                        <!-- All the links in the footer should remain intact. -->
+                        <!-- You can delete the links only if you purchased the pro version. -->
+                        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/vesperr-free-bootstrap-template/ -->
+                        @*<p>&copy; 2022 - IDP_Extranet </p>*@
+                        @*</div>*@
+                    </div>
+                    @*<div class="col-lg-6">
+                            <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+                                <a href="#intro" class="scrollto">Home</a>
+                                <a href="#about" class="scrollto">About</a>
+                                <a href="#">Privacy Policy</a>
+                                <a href="#">Terms of Use</a>
+                            </nav>
+                        </div>*@
+                </div>
+            </div>
+        </footer><!-- End Footer -->
+        @*<footer>
+                <p>&copy; 2022 - IDP_Extranet ares</p>
+            </footer>*@
+     
+
+
+
+        <environment include="Development">
+            <script src="~/lib/jquery/dist/jquery.js"></script>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>
+
+            <script src="~/vendor/jquery/jquery.min.js"></script>
+            <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="~/vendor/jquery.easing/jquery.easing.min.js"></script>
+            <script src="~/vendor/php-email-form/validate.js"></script>
+            <script src="~/vendor/waypoints/jquery.waypoints.min.js"></script>
+            <script src="~/vendor/counterup/counterup.min.js"></script>
+            <script src="~/vendor/owl.carousel/owl.carousel.min.js"></script>
+            <script src="~/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+            <script src="~/vendor/venobox/venobox.min.js"></script>
+            <script src="~/vendor/aos/aos.js"></script>
+
+            <!-- Template Main JS File -->
+            <script src="~/js/main.js"></script>
+
+           
+
+
+
+        </environment>
     <environment exclude="Development">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"

@@ -1,0 +1,500 @@
+﻿section#funnel {
+    padding: 0px 0px 0px
+}
+
+    section#funnel h1,
+    section#funnel h2 {
+        margin: 0 0 30px 0;
+        font-family: "Amaranth", sans-serif;
+        font-weight: 400;
+        font-size: 30px;
+        color: #485254
+    }
+
+        section#funnel h1:nth-of-type(2),
+        section#funnel h2:nth-of-type(2) {
+            margin-top: 20px
+        }
+
+    section#funnel div.buttons {
+        display: flex;
+        justify-content: flex-start
+    }
+
+        section#funnel div.buttons .btn-funnel {
+            width: 250px;
+            height: 135px;
+            margin: 0 20px 20px 0;
+            color: #00c0be;
+            border: 2px solid #7de0df;
+            border-radius: 6px;
+            background: #FFF;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center
+        }
+
+            section#funnel div.buttons .btn-funnel div.icon {
+                width: 60px;
+                height: 60px
+            }
+
+            section#funnel div.buttons .btn-funnel h2 {
+                margin: 0;
+                font-family: "Amaranth", sans-serif;
+                font-size: 24px;
+                font-weight: 400
+            }
+
+            section#funnel div.buttons .btn-funnel:hover {
+                border: 2px solid #00c0be
+            }
+
+            section#funnel div.buttons .btn-funnel.active {
+                color: #FFF !important;
+                border: 2px solid #00c0be;
+                background: #00c0be
+            }
+
+                section#funnel div.buttons .btn-funnel.active h2 {
+                    color: #FFF !important
+                }
+
+                section#funnel div.buttons .btn-funnel.active svg path {
+                    fill: #FFF
+                }
+
+@media only screen and (max-width: 1550px) {
+    section#funnel div.buttons {
+        justify-content: flex-start;
+        flex-wrap: wrap
+    }
+}
+
+@media only screen and (max-width: 920px) {
+    section#funnel {
+        padding: 50px 20px 80px 20px
+    }
+
+        section#funnel h1 {
+            text-align: center
+        }
+
+        section#funnel div.buttons {
+            justify-content: space-around
+        }
+
+            section#funnel div.buttons .btn-funnel {
+                width: 220px;
+                height: 120px;
+                margin: 0 0 20px 0;
+                flex-grow: 0;
+                flex-shrink: 0
+            }
+}
+
+section#funnel.step-1 {
+    background: url("../img/funnel-bg-v2.jpg") bottom right no-repeat
+}
+
+@media only screen and (max-width: 1560px) {
+    section#funnel.step-1 {
+        background-size: 50%
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    section#funnel.step-1 {
+        background: none
+    }
+}
+
+section#funnel.step-3 {
+    display: flex;
+    justify-content: space-between
+}
+
+    section#funnel.step-3 aside#filters {
+        flex-basis: 380px;
+        flex-shrink: 0;
+        flex-grow: 0;
+        margin-right: 20px
+    }
+
+        section#funnel.step-3 aside#filters h1 {
+            margin: 0 0 30px 0;
+            font-family: "Amaranth", sans-serif;
+            font-size: 30px;
+            color: #485254
+        }
+
+            section#funnel.step-3 aside#filters h1 span.mobile-icon,
+            section#funnel.step-3 aside#filters h1 span.mobile-btn,
+            section#funnel.step-3 aside#filters h1 span.mobile-btn-open {
+                display: none
+            }
+
+            section#funnel.step-3 aside#filters h1 span.mobile-btn-close,
+            section#funnel.step-3 aside#filters h1 span.mobile-btn-open {
+                cursor: pointer
+            }
+
+            section#funnel.step-3 aside#filters h1 span.mobile-btn {
+                margin-right: 5px
+            }
+
+        section#funnel.step-3 aside#filters div.dropdown {
+            position: relative;
+            width: 100%;
+            height: 60px;
+            margin-bottom: 20px
+        }
+
+            section#funnel.step-3 aside#filters div.dropdown a {
+                position: relative;
+                height: 60px;
+                padding-left: 18px;
+                font-family: "Amaranth", sans-serif;
+                font-size: 21px;
+                line-height: 60px;
+                color: #485254;
+                background: #FFF;
+                border: 2px solid #7de0df;
+                border-radius: 6px;
+                display: block;
+                cursor: pointer
+            }
+
+                section#funnel.step-3 aside#filters div.dropdown a svg {
+                    position: absolute;
+                    top: 50%;
+                    right: 10px;
+                    transform: translateY(-50%);
+                    color: #9DAEB0
+                }
+
+                section#funnel.step-3 aside#filters div.dropdown a em {
+                    font-style: normal
+                }
+
+                section#funnel.step-3 aside#filters div.dropdown a i {
+                    font-style: normal;
+                    display: none
+                }
+
+@media only screen and (max-width: 920px) {
+    section#funnel.step-3 aside#filters div.dropdown a em {
+        display: none
+    }
+
+    section#funnel.step-3 aside#filters div.dropdown a i {
+        display: block
+    }
+}
+
+section#funnel.step-3 aside#filters div.dropdown ul {
+    position: absolute;
+    top: 58px;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    border: 2px solid #7de0df;
+    border-radius: 6px;
+    background: #FFF;
+    display: none
+}
+
+    section#funnel.step-3 aside#filters div.dropdown ul li {
+        width: 100%;
+        height: 40px;
+        margin: 0;
+        padding: 0 0 0 10px;
+        font-family: "Amaranth", sans-serif;
+        font-size: 21px;
+        line-height: 40px;
+        color: #485254;
+        list-style: none;
+        cursor: pointer
+    }
+
+        section#funnel.step-3 aside#filters div.dropdown ul li:hover {
+            color: #00c0be
+        }
+
+@media only screen and (max-width: 920px) {
+    section#funnel.step-3 aside#filters div.dropdown ul li {
+        height: auto;
+        margin: 0 0 10px 0;
+        line-height: 25px
+    }
+}
+
+section#funnel.step-3 aside#filters div.dropdown.open ul {
+    display: block
+}
+
+section#funnel.step-3 aside#filters div.dropdown.dropdown-1 ul {
+    z-index: 8010
+}
+
+section#funnel.step-3 aside#filters div.dropdown.dropdown-2 ul {
+    z-index: 8009
+}
+
+section#funnel.step-3 aside#filters div.dropdown.dropdown-3 ul {
+    z-index: 8008
+}
+
+section#funnel.step-3 aside#filters div.dropdown.dropdown-4 ul {
+    z-index: 8007
+}
+
+section#funnel.step-3 aside#filters div.dropdown.dropdown-5 ul {
+    z-index: 8006
+}
+
+section#funnel.step-3 aside#filters div.dropdown.dropdown-6 ul {
+    z-index: 8005
+}
+
+section#funnel.step-3 aside#filters div#name_search {
+    position: relative;
+    width: 100%;
+    height: 60px
+}
+
+    section#funnel.step-3 aside#filters div#name_search button {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 60px;
+        height: 60px;
+        font-size: 26px;
+        line-height: 60px;
+        text-align: center;
+        background: #AACB2D;
+        border: 1px solid #AACB2D;
+        border-radius: 6px 0 0 6px;
+        cursor: pointer
+    }
+
+        section#funnel.step-3 aside#filters div#name_search button svg {
+            color: #FFF
+        }
+
+        section#funnel.step-3 aside#filters div#name_search button:hover {
+            background: #99b628
+        }
+
+    section#funnel.step-3 aside#filters div#name_search input {
+        width: 100%;
+        height: 60px;
+        padding: 0 0 0 70px;
+        font-family: "Amaranth", sans-serif;
+        font-size: 20px;
+        line-height: 60px;
+        background: #FFF;
+        border: 1px solid #7de0df;
+        border-radius: 0 6px 6px 0;
+        outline: none
+    }
+
+@media only screen and (max-width: 1280px) {
+    section#funnel.step-3 aside#filters {
+        width: 100%;
+        padding: 0 5px;
+        flex-basis: auto !important
+    }
+
+        section#funnel.step-3 aside#filters h1 {
+            width: 100%;
+            margin-bottom: 0 !important;
+            height: 50px !important;
+            line-height: 50px !important;
+            display: flex;
+            flex-basis: 100%
+        }
+
+            section#funnel.step-3 aside#filters h1 span {
+                height: 50px;
+                line-height: 50px;
+                display: flex;
+                align-items: center
+            }
+
+                section#funnel.step-3 aside#filters h1 span.mobile-icon {
+                    margin-right: 10px;
+                    display: block
+                }
+
+                section#funnel.step-3 aside#filters h1 span.title {
+                    flex-grow: 1;
+                    text-align: left
+                }
+
+                section#funnel.step-3 aside#filters h1 span.mobile-btn {
+                    margin-left: 10px;
+                    align-self: flex-end;
+                    display: block
+                }
+
+                section#funnel.step-3 aside#filters h1 span.mobile-btn-open {
+                    display: none
+                }
+
+                section#funnel.step-3 aside#filters h1 span.mobile-btn {
+                    margin-right: 5px
+                }
+
+        section#funnel.step-3 aside#filters .filter-list {
+            padding: 20px 0;
+            display: none
+        }
+
+            section#funnel.step-3 aside#filters .filter-list.active {
+                display: block
+            }
+}
+
+section#funnel.step-3 aside#filters.mobile-sticky {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    right: 0;
+    padding: 0 10px;
+    background: #FFF
+}
+
+section#funnel.step-3 div.dropdown-city-filter {
+    position: relative;
+    width: 350px;
+    height: 60px;
+    margin-bottom: 20px
+}
+
+    section#funnel.step-3 div.dropdown-city-filter a {
+        position: relative;
+        height: 60px;
+        padding-left: 18px;
+        font-family: "Amaranth", sans-serif;
+        font-size: 21px;
+        line-height: 60px;
+        color: #485254;
+        background: #FFF;
+        border: 2px solid #7de0df;
+        border-radius: 6px;
+        display: block;
+        cursor: pointer
+    }
+
+        section#funnel.step-3 div.dropdown-city-filter a svg {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: #9DAEB0
+        }
+
+        section#funnel.step-3 div.dropdown-city-filter a em {
+            font-style: normal
+        }
+
+        section#funnel.step-3 div.dropdown-city-filter a i {
+            font-style: normal;
+            display: none
+        }
+
+@media only screen and (max-width: 920px) {
+    section#funnel.step-3 div.dropdown-city-filter a em {
+        display: none
+    }
+
+    section#funnel.step-3 div.dropdown-city-filter a i {
+        display: block
+    }
+}
+
+section#funnel.step-3 div.dropdown-city-filter ul {
+    position: absolute;
+    top: 58px;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    border: 2px solid #7de0df;
+    border-radius: 6px;
+    background: #FFF;
+    display: none
+}
+
+    section#funnel.step-3 div.dropdown-city-filter ul li {
+        width: 100%;
+        height: 40px;
+        margin: 0;
+        padding: 0 0 0 10px;
+        font-family: "Amaranth", sans-serif;
+        font-size: 21px;
+        line-height: 40px;
+        color: #485254;
+        list-style: none;
+        cursor: pointer
+    }
+
+        section#funnel.step-3 div.dropdown-city-filter ul li:hover {
+            color: #00c0be
+        }
+
+@media only screen and (max-width: 920px) {
+    section#funnel.step-3 div.dropdown-city-filter ul li {
+        height: auto;
+        margin: 0 0 10px 0;
+        line-height: 25px
+    }
+}
+
+section#funnel.step-3 div.dropdown-city-filter.open ul {
+    display: block
+}
+
+section#funnel.step-3 div.dropdown-city-filter.dropdown-1 ul {
+    z-index: 8010
+}
+
+section#funnel.step-3 div.dropdown-city-filter.dropdown-2 ul {
+    z-index: 8009
+}
+
+section#funnel.step-3 div.dropdown-city-filter.dropdown-3 ul {
+    z-index: 8008
+}
+
+section#funnel.step-3 div.dropdown-city-filter.dropdown-4 ul {
+    z-index: 8007
+}
+
+section#funnel.step-3 div.dropdown-city-filter.dropdown-5 ul {
+    z-index: 8006
+}
+
+section#funnel.step-3 div.dropdown-city-filter.dropdown-6 ul {
+    z-index: 8005
+}
+
+section#funnel.step-3 section#staff_list {
+    flex-grow: 1
+}
+
+    section#funnel.step-3 section#staff_list h1 {
+        margin: 0 0 30px 0;
+        font-family: "Amaranth", sans-serif;
+        font-size: 21px;
+        color: #485254
+    }
+
+@media only screen and (max-width: 920px) {
+    section#funnel:not(.step-3):not(.gateway) {
+        text-align: center
+    }
+}

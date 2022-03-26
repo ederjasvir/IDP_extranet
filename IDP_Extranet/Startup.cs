@@ -33,6 +33,7 @@ namespace IDP_Extranet
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,6 +42,7 @@ namespace IDP_Extranet
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                
             }
             else
             {
@@ -52,11 +54,14 @@ namespace IDP_Extranet
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
+            app.UseSession();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                     //template: "{controller=Home}/{action=Index}/{id?}");
+                     template: "{controller=Login}/{action=Login}/{Usuario?}");
             });
         }
     }

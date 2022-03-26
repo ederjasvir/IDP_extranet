@@ -1,0 +1,204 @@
+﻿@using IDP_Extranet.Models
+@model IEnumerable<IDP_Extranet.Models.ClsVW_profesional>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "PASO3";
+}
+<!--********************************* css propios ********************************************-->
+<link href="~/css/propios/calendario.css" rel="stylesheet">
+
+
+<!-- Start #main -->
+<main id="main">
+
+
+    <br />
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+        @*<h4>especialidad: @ViewBag.hd_especialidad</h4>
+            <h4>tipo: @ViewBag.hd_tipo</h4>
+            <h4>grupo: @ViewBag.hd_grupo</h4>*@
+
+        @Html.Hidden("hd_especialidad")
+        @Html.Hidden("hd_tipo")
+        @Html.Hidden("hd_grupo")
+        <div class="container">
+            <!--***************************************************** fila 1 ***********************************************-->
+            <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-lg-3 col-md-4">
+                    <select class="form-control" id="sel_especialidad">
+                        <option value="SELECCIONAR">SELECCIONAR</option>
+                        <option value="psicologo">PSICOLOGÍA</option>
+                        <option value="nutricionista">NUTRICIÓN</option>
+                    </select>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+                    <div class="icon-box">
+                        <select class="form-control" id="sel_tipo">
+                            <option value="SELECCIONAR">SELECCIONAR</option>
+                            <option value="presencial">CITA PRESENCIAL</option>
+                            <option value="online">CITA ONLINE</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+                    <div class="icon-box">
+                        <select class="form-control" id="sel_grupo">
+                            <option value="SELECCIONAR">SELECCIONAR</option>
+                            <option value="adultos">ADULTOS</option>
+                            <option value="ninos">NIÑOS</option>
+                            <option value="adolescentes">ADOLESCENTES</option>
+                            <option value="adulto-mayor">ADULTO MAYOR</option>
+                            <option value="pareja">PAREJA</option>
+                            <option value="familia">FAMILIA</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <br />
+            <br />
+            <!--***************************************************** fila 2 ***********************************************-->
+            <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+
+                @{ var total = 0;
+                    var demo = "";
+
+                    @for (var i = 0; i < Model.Count(); i++)
+                    {
+
+                        total = @i;
+
+                    }
+
+                    foreach (var item1 in Model)
+                    {
+
+
+                        <h4> @Html.DisplayFor(modelItem => item1.NombreImagen)</h4>
+
+
+                        @for (var item = 0; item < Model.Count(); item++)
+                        {
+                            demo = (Model.ToList()[item].NombreImagen);
+
+                            <!--***************************************************** fila datos de profesionales ***********************************************-->
+
+                            <div class="col-md-3">
+
+                                <div class="member aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="member-img">
+                                        @*<img src="/images/img/team/team-1.jpg" class="img-fluid" alt="">*@
+                                        <img src="@Url.Content("~")/@demo" class="img-fluid" alt="" />
+
+                                        @*<div class="social">
+                                                <a href=""><i class="icofont-twitter"></i></a>
+                                                <a href=""><i class="icofont-facebook"></i></a>
+                                                <a href=""><i class="icofont-instagram"></i></a>
+                                                <a href=""><i class="icofont-linkedin"></i></a>
+                                            </div>*@
+                                    </div>
+                                    <div class="member-info">
+                                        @*<h4> @Html.DisplayFor(modelItem => item1.NombreCompleto)</h4>*@
+                                        <h4>
+                                            @Html.DisplayFor(modelItem => Model.ToList()[item].NombreCompleto)
+                                        </h4>
+                                        <span>#@Html.DisplayFor(modelItem => Model.ToList()[item].Vc_IdEmpleado)</span>
+                                        <span>#@Html.DisplayFor(modelItem => Model.ToList()[item].imgen_perfil)</span>
+                                        <input type="hidden" id="hd_Vc_IdEmpleado_@item" value=@Model.ToList()[item].Vc_IdEmpleado />
+                                        <input type="hidden" id="hd_nombrecompleto_@item" value=@Model.ToList()[item].NombreCompleto />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!--***************************************************** fila de profesionales ***********************************************-->
+                            @*fila con tabla de profesionales*@
+                            <div class="col-lg-9">
+                                <div class="content w-100">
+                                    <div class="calendar-container">
+                                        <div class="calendar table-responsive">
+                                            <div class="year-header">
+                                                <span class="left-button fa fa-chevron-left" id="prev">
+                                                </span>
+                                                <span class="year" id="label"></span>
+                                                <span class="right-button fa fa-chevron-right" id="next">
+                                                </span>
+                                            </div>
+                                            <table class="months-table w-100" >
+                                                <tbody>
+                                                    <tr class="months-row">
+                                                        <td class="month">Jan</td>
+                                                        <td class="month">Feb</td>
+                                                        <td class="month">Mar</td>
+                                                        <td class="month">Apr</td>
+                                                        <td class="month">May</td>
+                                                        <td class="month">Jun</td>
+                                                        <td class="month">Jul</td>
+                                                        <td class="month">Aug</td>
+                                                        <td class="month">Sep</td>
+                                                        <td class="month">Oct</td>
+                                                        <td class="month">Nov</td>
+                                                        <td class="month">Dec</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+                                            <table class="days-table w-100" >
+                                                <td class="day">Sun</td>
+                                                <td class="day">Mon</td>
+                                                <td class="day">Tue</td>
+                                                <td class="day">Wed</td>
+                                                <td class="day">Thu</td>
+                                                <td class="day">Fri</td>
+                                                <td class="day">Sat</td>
+                                            </table>
+                                            <div class="table-responsive">
+                                                <table class="dates-table w-100" id=tabla_calen_@item>
+                                                    <tbody class="tbody"></tbody>
+                                                </table>
+                                            </div>
+                                            <!-- <button class="button" id="add-button">Add Event</button> -->
+                                        </div>
+                                    </div>
+                                    <div class="events-container" id=car_evento_@item>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        } @*fin del 2do for*@
+                        <input type="hidden" id="total_registros" value=@total />
+                        break;
+                    }@*fin del 1do for*@
+
+
+
+                }
+
+
+
+            </div><!-- End F.A.Q Item-->
+
+        </div>
+
+    </section><!-- End About Us Section -->
+
+
+    <section> </section>
+    <section> </section>
+    <section> </section>
+
+    <section> </section>
+
+</main>
+<!-- End #main -->
+<!--**************************** script propios ******************************-->
+<script src="~/js/propios/popper.js"></script>
+<script src="~/js/propios/main.js"></script>
+@*<script src="~/js/propios/funciones_auxiliares.js"></script>*@

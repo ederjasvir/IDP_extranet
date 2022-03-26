@@ -1,0 +1,320 @@
+﻿/********************** NUEVOS DATOS AGREGADOS   */
+/*  Events display */
+.events-containe-ares {
+    overflow-y: scroll;
+    height: 100%;
+    width: 50%;
+    float: right;
+    margin: 0px auto;
+    display: inline-block;
+    padding: 0px;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    padding: 0;
+}
+
+
+
+
+
+@media (max-width: 767.98px) {
+    .events-container {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.events-container:after {
+    clear: both;
+}
+
+
+
+
+.event-card {
+    padding: 20px 0;
+    max-width: 100%;
+    display: block;
+    background: #fff;
+    border: none !important;
+    margin: 20px;
+    margin-left: 12px;
+}
+
+@media (max-width: 991.98px) {
+    .event-card {
+        margin: 10px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .event-card {
+        margin: 0;
+        background: #fff;
+    }
+}
+
+.event-count,
+.event-name,
+.event-cancelled {
+    display: inline;
+    padding: 0 10px;
+    font-size: 1rem;
+}
+
+.event-count {
+    color: #7de0df;
+    text-align: right;
+}
+
+.event-name {
+    padding-right: 0;
+    text-align: left;
+}
+
+.event-cancelled {
+    color: #00c0be;
+    text-align: right;
+}
+
+/*  Calendar wrapper */
+.calendar-container {
+    position: relative;
+    margin: 0 auto;
+    height: 100%;
+    width: 50%;
+    background: #fff;
+    font: 13px Helvetica, Arial, san-serif;
+    display: inline-block;
+    padding: 20px;
+    float: left;
+}
+
+@media (max-width: 991.98px) {
+    .calendar-container {
+        padding: 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .calendar-container {
+        padding: 0;
+        width: 100%;
+    }
+}
+
+.calendar-container:after {
+    clear: both;
+}
+
+
+.calendar {
+    width: 100%;
+    padding: 0;
+}
+
+/* Calendar Header */
+.year-header {
+    background: #fff;
+    height: 40px;
+    text-align: center;
+    position: relative;
+    color: #fff;
+    border-top-left-radius: 3px;
+    margin-top: 20px;
+}
+
+    .year-header span {
+        display: inline-block;
+        font-size: 20px;
+        line-height: 40px;
+        color: #000;
+    }
+
+
+/* Days/months tables */
+.days-table,
+.dates-table,
+.months-table {
+    border-collapse: separate;
+    text-align: center;
+}
+
+.day {
+    height: 26px;
+    width: 26px;
+    padding: 0 10px;
+    line-height: 26px;
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: #000;
+}
+
+.month {
+    cursor: default;
+    height: 26px;
+    width: 26px;
+    padding: 0 2px;
+    padding-top: 10px;
+    line-height: 26px;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: #000;
+    -webkit-transition: all 250ms;
+    -o-transition: all 250ms;
+    transition: all 250ms;
+}
+
+@media (max-width: 991.98px) {
+    .month {
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .month {
+        font-size: 10.5px;
+    }
+}
+
+.active-month {
+    font-weight: 700;
+    color: #000;
+}
+
+.month:hover {
+    color: #00c0be;
+}
+
+/*  Dates table */
+.table-date {
+    cursor: default;
+    color: #2b2b2b;
+    height: 26px;
+    width: 26px;
+    font-size: 15px;
+    padding: 10px;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    -webkit-transition: all 250ms;
+    -o-transition: all 250ms;
+    transition: all 250ms;
+    position: relative;
+}
+
+    .table-date:not(.nil):hover {
+        border-color: #00c0be;
+    }
+
+.event-date {
+    border-color: #7de0df;
+    background: #7de0df;
+    color: #fff;
+}
+
+    .event-date:after {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        content: '';
+        background: #28a745;
+    }
+
+.active-date {
+    background: #00c0be;
+    color: #fff;
+}
+
+.event-date.active-date {
+    background: #7de0df;
+}
+
+
+#add-button {
+    display: block;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+    #add-button:hover,
+    #ok-button:hover,
+    #cancel-button:hover {
+        -webkit-transform: scale(1.03);
+        -ms-transform: scale(1.03);
+        transform: scale(1.03);
+    }
+
+    #add-button:active,
+    #ok-button:active,
+    #cancel-button:active {
+        -webkit-transform: translateY(3px) scale(0.97);
+        -ms-transform: translateY(3px) scale(0.97);
+        transform: translateY(3px) scale(0.97);
+    }
+
+.dialog-header {
+    margin: 20px;
+    color: #fff;
+    text-align: center;
+    font-size: 28px;
+}
+
+.form-container {
+    margin-top: 25%;
+}
+
+
+.form-label {
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: rgb(255, 255, 255);
+}
+
+
+/* Buttons */
+.button {
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    font-size: 1rem;
+    border-radius: 25px;
+    padding: 0.65rem 1.9rem;
+    -webkit-transition: .2s ease all;
+    -o-transition: .2s ease all;
+    transition: .2s ease all;
+    color: white;
+    border: none;
+    background: #7de0df;
+}
+
+    .button.button-white {
+        background: #fff;
+        color: #000;
+    }
+
+    .button:focus {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        outline: none;
+    }
+
+#cancel-button {
+    background: #00c0be;
+}
+
+
+
+
+.table-date:not(.nil):hover {
+    border-color: #00c0be;
+}

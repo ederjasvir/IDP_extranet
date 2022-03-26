@@ -1,0 +1,240 @@
+﻿@*@model IDP_Extranet.Models.ClsEspecialidad*@
+@model IDP_Extranet.Models.ClsBE_Citas_Programadas
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "PASARELA";
+}
+
+<main id="main">
+
+
+    <br />
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+        <div class="container">
+
+            <div class="section-title" data-aos="fade-up">
+                <h2>
+                    Verifica tus datos, fecha y hora de la cita
+                    y elige el método de pago
+                </h2>
+            </div>
+            <input type="hidden" id="hd_cod" />
+            <input type="hidden" id="hd_cod_profesional" />
+            @*<input type="hidden" id="hd_persona" />*@
+            <form asp-action="pasarela">
+                <div class="row content">
+
+                    <!--***************************************** columna 1 ***************************************-->
+                    <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
+                        <div class="form-group">
+                            <h4>DATOS DEL PACIENTE</h4>
+                            <span class="mr-4">
+                                <i class="fas fa-user icon-2x text-muted font-weight-bold"></i>
+                            </span>
+
+
+                            <input asp-for="in_persona" class="form-control" />
+                            <div></div>
+
+                            <label id="lbl_persona" class="font-weight-bolder font-size-h5"></label>
+                            <input asp-for="vc_nombre_completo" class="form-control" />
+
+                        </div>
+
+                        <div class="alert-text">
+                            Si la cita no es para usted escriba el nombre del
+                            paciente. Si el paciente es menor de 15 años, en la primera cita asisten
+                            únicamente los padres.
+                        </div>
+                        <p></p>
+                        <div class="form-group">
+                            <label>Paciente</label>
+                            <input type="text" id="txt_paciente" class="form-control" placeholder="Ingrese el nombre del paciente">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Edad</label>
+                            <input type="number" class="form-control" id="txt_edad_paciente" placeholder="Ingrese la edad del paciente">
+                        </div>
+
+                        <!--************************************** datos de la cita  **********************************************-->
+                        <hr class="solid">
+                        <h3>Datos de la Cita</h3>
+                        <br />
+                        <div class="form-group mb-8">
+                            <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                <span class="mr-4">
+                                    <i class="icon-xl fas fa-hand-holding-medical text-success"></i>
+                                </span>
+                                <div class="d-flex flex-column text-dark-75">
+                                    <input type="hidden" id="hd_especialidad" />
+                                    <span class="font-weight-bolder font-size-h5">
+                                        <!-- <span></span>Especialidad: Psicología</span> -->
+                                        <label id="lbl_especialidad" class="font-weight-bolder font-size-h5"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-8">
+                            <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                <span class="mr-4">
+                                    <i class="icon-xl fas fa-book text-success"></i>
+                                </span>
+                                <div class="d-flex flex-column text-dark-75">
+                                    <input type="hidden" id="hd_especialista" />
+                                    <span class="font-weight-bolder font-size-h5">
+                                        <!-- <span class="text-dark-50"></span>Especialista: Leo Leonidas</span> -->
+                                        <label id="lbl_especialista" class="font-weight-bolder font-size-h5"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-8">
+                            <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                <span class="mr-4">
+                                    <i class="icon-xl fas fa-chalkboard-teacher text-success"></i>
+                                </span>
+                                <div class="d-flex flex-column text-dark-75">
+                                    <input type="hidden" id="hd_modalidad" />
+                                    <span class="font-weight-bolder font-size-h5">
+                                        <!-- <span class="text-dark-50"></span>Modalidad: Online</span> -->
+                                        <label id="lbl_modalidad" class="font-weight-bolder font-size-h5"></label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group mb-8">
+                            <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                <span class="mr-4">
+                                    <i class="icon-xl far fa-calendar-alt text-success"></i>
+                                </span>
+                                <div class="d-flex flex-column text-dark-75">
+                                    <input type="hidden" id="hd_fecha_cita" />
+                                    <span class="font-weight-bolder font-size-h5">
+                                        <!-- <span class="text-dark-50"></span>Fecha: 08-03-2022</span> -->
+                                        <label id="lbl_fecha" class="font-weight-bolder font-size-h5"></label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group mb-8">
+                            <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                <span class="mr-4">
+                                    <i class="icon-xl fas fa-clock text-success"></i>
+                                </span>
+                                <div class="d-flex flex-column text-dark-75">
+                                    <input type="hidden" id="hd_hora_cita" />
+                                    <span class="font-weight-bolder font-size-h5">
+                                        <!-- <span class="text-dark-50"></span>Hora: 11:00 am</span> -->
+                                        <label id="lbl_hora" class="font-weight-bolder font-size-h5"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--************************************** costo de la cita  **********************************************-->
+                        <hr class="solid">
+                        <h3>Costo de la consulta</h3>
+
+                        <div class="form-group mb-8">
+                            <div class="d-flex align-items-center flex-lg-fill mr-5 my-1">
+                                <span class="mr-4">
+                                    <i class="icon-xl fas fa-coins text-success"></i>
+                                </span>
+                                <div class="d-flex flex-column text-dark-75">
+                                    <input type="hidden" id="hd_costo_cita" />
+                                    <span class="font-weight-bolder font-size-h5">
+                                        <!-- <span class="text-dark-50"></span>Costo: S/. 100.00</span> -->
+                                        <label id="lbl_costo" class="font-weight-bolder font-size-h5"></label>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--***************************************** columna 2 ***************************************-->
+                    <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="300">
+                        <!--begin::Form-->
+
+
+
+                        <div class="form-group">
+                            <h4>Ventanilla BCP O Vía BCP</h4>
+                            <label>al número de cuenta:</label>
+                            <h3 class="text-success">193- 2172410-0-48</h3>
+                        </div>
+                        <div class="form-group">
+                            <h4>Agente BCP</h4>
+                            <label>al número de cuenta:</label>
+                            <h3 class="text-success">193- 2172410-0-48</h3>
+                        </div>
+
+                        <div class="form-group">
+                            <h4>Yape</h4>
+                            <label>al número:</label>
+                            <h3 class="text-success">987 456 120</h3>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Número de operación</label>
+                            @*<input type="number" id="txt_nro_operaciones" class="form-control" />*@
+                            <input asp-for="in_nro_operacion" class="form-control" />
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Fecha de Pago</label>
+                            <input type="date" class="form-control" id="txt_fecha_pago" placeholder="Password">
+                        </div>
+
+                        <div class="alert alert-custom alert-notice alert-light-warning fade show mb-5"
+                             role="alert">
+                            <div class="alert-icon">
+                                <i class="flaticon-light"></i>
+                            </div>
+                            <div class="alert-text">
+                                Importante: Recibirá un correo de confirmación y otro 15
+                                minutos antes de su cita
+                                para la conexión. Revisar su spam si no le llega.
+                            </div>
+                            <p>&nbsp; </p>
+                            <input type="button" value="Pasarela" class="btn btn-success" onclick="guardar_cita()" />
+                            @*<button type="reset" class="btn btn-success mr-2" onclick="guardar_cita()">
+                                    Confirmar
+                                    Depósito
+                                </button>*@
+                            <button type="reset" class="btn btn-secondary">Cancelar</button>
+
+
+                            <!--end::Form-->
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+
+    </section><!-- End About Us Section -->
+
+    <section> </section>
+    <section> </section>
+    <section> </section>
+
+    <section> </section>
+
+
+    @**********************para los hiddens*************************@
+    <input type="hidden" id="hd_Vc_Cita" />
+    <input type="hidden" id="hd_Vc_Estado" />
+    <input type="hidden" id="HD_validacion_hora_cita" />
+    <input type="hidden" id="hd_vc_Nombre_Empresa" />
+
+    <input type="hidden" id="hd_hora_entrada" />
+    <input type="hidden" id="hd_hora_salida" />
+    <input type="hidden" id="hd_nombre_empleado" />
+    <input type="hidden" id="HD_enviar_accion" value="0" />
+
+</main><!-- End #main -->
+
+
+<script src="~/js/propios/pasarela.js"></script>

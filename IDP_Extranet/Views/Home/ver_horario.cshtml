@@ -1,0 +1,22 @@
+﻿@using IDP_Extranet.Models
+@model IEnumerable<IDP_Extranet.Models.ClsCitas>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ver_horario</title>
+    @foreach (var item1 in Model)
+    {
+
+        <h4> @Html.DisplayFor(modelItem => item1.NombreCompleto)</h4>
+        <h1> @Html.DisplayFor(modelItem => item1.Dt_FechaCreacion)</h1>
+    }
+</head>
+<body>
+</body>
+</html>
